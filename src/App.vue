@@ -7,7 +7,7 @@
 
     <!-- content screen -->
     <div class="content">
-      <img src="./assets/logo.png" />
+      <img class="image" src="./assets/logo.png" />
       <router-view />
     </div>
   </div>
@@ -42,11 +42,11 @@ export default {
 .loading {
   width: 100vw;
   height: 100vh;
-  transition: all 1s;
-  background-color: #0bd;
+  background-color: rgb(4, 135, 241);
   position: fixed;
   top: 0;
   left: 0;
+  transition: all 1s;
 }
 
 .loader {
@@ -57,7 +57,7 @@ export default {
   margin: 100px auto;
   top: 40%;
   border-radius: 50%; /* 四つ角を丸くする */
-  animation: sircle 1.1s infinite ease;
+  animation: sircle 1.1s infinite ease; /* infinite: ループ, ease : 開始・終了時ゆっくり */
   -webkit-animation: sircle 1.1s infinite ease;
 }
 
@@ -217,5 +217,10 @@ export default {
 .loaded {
   opacity: 0;
   visibility: hidden;
+}
+
+img:hover.image {
+  /* transition: 0.5s;
+  transform: rotateZ(360deg); */
 }
 </style>
