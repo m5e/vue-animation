@@ -143,13 +143,6 @@ export default {
 </script>
 
 <style scoped>
-.board {
-  width: 160px;
-  height: 160px;
-  margin: auto;
-  border: 0.5rem solid;
-}
-
 button {
   width: 100px;
   height: 100px;
@@ -162,6 +155,11 @@ button.start-button {
   width: 200px;
   margin: 30px 0px 30px 0px;
   transition: all 1s ease;
+  border-radius: 5px;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 2;
+  font-family: "Comic Sans MS";
 }
 
 button.start-button:hover {
@@ -170,8 +168,33 @@ button.start-button:hover {
   transition: all 1s ease;
 }
 
+button.start-button:hover,
+button.start-button:active {
+  color: #00b285;
+}
+
+button.start-button:after {
+  width: 0%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+button.start-button:hover:after,
+button.start-button:active:after {
+  border: 2px solid #00b285;
+  width: 100%;
+}
+
 h1 {
   font-weight: normal;
+  font-family: "Comic Sans MS";
 }
 
 ul {
@@ -186,5 +209,12 @@ li {
 
 a {
   color: #42b983;
+}
+
+.board {
+  width: 160px;
+  height: 160px;
+  margin: auto;
+  border: 0.5rem solid;
 }
 </style>

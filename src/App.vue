@@ -47,6 +47,7 @@ export default {
   top: 0;
   left: 0;
   transition: all 1s;
+  z-index: 3;
 }
 
 .loader {
