@@ -147,22 +147,27 @@ export default {
   width: 160px;
   height: 160px;
   margin: auto;
-  border: 0.2rem solid;
-}
-
-td {
-  border: 0.1rem solid;
+  border: 0.5rem solid;
 }
 
 button {
   width: 100px;
   height: 100px;
   font-size: 50px;
+  color: #fff;
+  background: #1aab8a;
 }
 
 button.start-button {
   width: 200px;
   margin: 30px 0px 30px 0px;
+  transition: all 1s ease;
+}
+
+button.start-button:hover {
+  color: #1aab8a;
+  background: #fff;
+  transition: all 1s ease;
 }
 
 h1 {
