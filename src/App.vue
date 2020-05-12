@@ -219,9 +219,4 @@ export default {
   opacity: 0;
   visibility: hidden;
 }
-
-img:hover.image {
-  /* transition: 0.5s;
-  transform: rotateZ(360deg); */
-}
 </style>

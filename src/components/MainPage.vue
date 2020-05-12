@@ -1,7 +1,8 @@
 <template>
   <div class="main">
+    <h1 v-show="finished" class="cleared">Cleared!!!!!</h1>
     <h1>15 Pazzle</h1>
-    <table class="board">
+    <table class="board not-started">
       <tr>
         <td id="0">
           <button @click="movePanel">{{this.panel[0]}}</button>
@@ -68,7 +69,7 @@
 export default {
   name: "MainPage",
   data() {
-    return { panel: [] };
+    return { panel: [], finished: false };
   },
   mounted() {
     // パネル上に表示する数字を配列に格納
@@ -83,17 +84,57 @@ export default {
      * スタートボタン押下時
      */
     start() {
-      this.panel.sort(() => {
-        return Math.random() - Math.random();
-      });
+      const boardElement = this.$el.getElementsByClassName("board")[0];
+      if (boardElement.classList.contains("complete")) {
+        boardElement.classList.remove("complete");
+      } else if (boardElement.classList.contains("not-started")) {
+        boardElement.classList.remove("not-started");
+      }
+
+      while (true) {
+        this.panel.sort(() => {
+          return Math.random() - Math.random();
+        });
+
+        if (this.checkSolvable(this.panel)) break;
+      }
     },
 
-    // TODO: ここの処理を完成させる
     /**
-     * パネルが攻略可能な配置であるかチェック
+     * パネルが攻略可能な配置か確認する
      */
-    check(panel) {
-      return true;
+    checkSolvable(panel) {
+      const targetArray = [];
+      let starIndex = null;
+
+      panel.forEach((item, index) => {
+        if (item === "★") {
+          starIndex = index;
+        } else {
+          targetArray.push(item);
+        }
+      });
+      let checkCount = 1;
+      if (0 <= starIndex && starIndex <= 3) {
+        //
+      } else if (4 <= starIndex && starIndex <= 7) {
+        checkCount = 2;
+      } else if (8 <= starIndex && starIndex <= 11) {
+        checkCount = 3;
+      } else if (12 <= starIndex && starIndex <= 15) {
+        checkCount = 4;
+      }
+
+      while (targetArray.length !== 0) {
+        const targetValue = targetArray[0];
+        targetArray.shift();
+
+        targetArray.forEach(elm => {
+          if (elm < targetValue) checkCount++;
+        });
+      }
+
+      return checkCount % 2 === 0;
     },
 
     /**
@@ -137,6 +178,37 @@ export default {
           this.panel.splice([arrayForConfirmation[item].index], 1, targetVal);
         }
       });
+
+      if (this.checkFinish()) {
+        const boardElement = this.$el.getElementsByClassName("board")[0];
+        boardElement.classList.add("complete");
+
+        this.finished = true;
+      }
+    },
+
+    // パズルが攻略済みがどうか確認
+    checkFinish() {
+      const completeArray = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "★"
+      ];
+
+      return this.panel.toString() === completeArray.toString();
     }
   }
 };
@@ -216,5 +288,16 @@ a {
   height: 160px;
   margin: auto;
   border: 0.5rem solid;
+}
+
+.board.complete,
+.not-started {
+  pointer-events: none;
+}
+
+.cleared {
+  font-size: 230%;
+  font-weight: bold;
+  color: gold;
 }
 </style>
