@@ -1,5 +1,26 @@
 <template>
   <div id="app">
+    <b-navbar class="navigation">
+      <b-navbar-brand href="#">
+        <b-button class="navigation-button" v-b-toggle.sidebar-left>
+          <svg
+            class="bi bi-justify"
+            width="1.5em"
+            height="1.5em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2 12.5a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z"
+              clip-rule="evenodd"
+            /></svg
+        ></b-button>
+      </b-navbar-brand>
+    </b-navbar>
+    <b-sidebar id="sidebar-left" title="Menu" left></b-sidebar>
+
     <!-- loading screen -->
     <div class="loading">
       <div class="loader" />
@@ -7,7 +28,6 @@
 
     <!-- content screen -->
     <div class="content">
-      <img class="image" src="./assets/logo.png" />
       <router-view />
     </div>
   </div>
@@ -36,7 +56,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.navigation {
+  margin-bottom: 10%;
+}
+
+.navigation,
+.navigation-button,
+.navigation-button:hover,
+.navigation-button:focus {
+  background-color: #1aab8a;
+  border-color: #1aab8a;
 }
 
 .loading {
