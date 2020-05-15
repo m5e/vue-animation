@@ -64,8 +64,8 @@ export default {
 
 .navigation,
 .navigation-button.btn-secondary,
-.navigation-button:hover,
-.navigation-button:focus {
+.navigation-button.btn-secondary:hover,
+.navigation-button.btn-secondary:focus {
   background-color: #1aab8a;
   border-color: #1aab8a;
 }
