@@ -59,11 +59,11 @@ export default {
 }
 
 .navigation {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .navigation,
-.navigation-button,
+.navigation-button.btn-secondary,
 .navigation-button:hover,
 .navigation-button:focus {
   background-color: #1aab8a;
