@@ -18,8 +18,20 @@
             /></svg
         ></b-button>
       </b-navbar-brand>
+      <h3>vue-animation</h3>
     </b-navbar>
-    <b-sidebar id="sidebar-left" title="Menu" left></b-sidebar>
+    <b-sidebar id="sidebar-left" title="Menu" left>
+      <p>
+        <router-link class="menu-content" to="/" @click="hide()"
+          >15 Pazzle</router-link
+        >
+      </p>
+      <p>
+        <router-link class="menu-content" to="/anime" @click="hide()"
+          >Anime</router-link
+        >
+      </p>
+    </b-sidebar>
 
     <!-- loading screen -->
     <div class="loading">
@@ -56,6 +68,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#sidebar-left {
+  font-family: "Comic Sans MS";
+}
+
+h3 {
+  color: whitesmoke;
+  font-family: "Comic Sans MS";
+}
+
+a.menu-content {
+  font-size: 120%;
 }
 
 .navigation {

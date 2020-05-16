@@ -223,8 +223,9 @@ export default {
 
 <style scoped>
 button {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
+  min-width: 75px;
   font-size: 50px;
   color: #fff;
   background: #1aab8a;
@@ -291,8 +292,8 @@ a {
 }
 
 .board {
-  width: 160px;
-  height: 160px;
+  width: 50%;
+  height: 100%;
   margin: auto;
   border: 0.5rem solid;
 }
