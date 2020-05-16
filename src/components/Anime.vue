@@ -58,7 +58,7 @@ export default {
 }
 
 .scale-up {
-  transform: scale(80);
+  transform: scale(150);
   position: fixed;
   transition: transform 0.3s ease-in-out;
 }
