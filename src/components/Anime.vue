@@ -2,7 +2,7 @@
   <div class="anime">
     <div class="icon-avatar" :class="{ 'scale-up': isShowScaleUp }"></div>
 
-    <div class="sss" @click="click">
+    <div class="icon-div" @click="click">
       <svg
         class="bi bi-person"
         width="2em"
@@ -63,13 +63,7 @@ export default {
   transition: transform 0.3s ease-in-out;
 }
 
-.bi-person {
-  position: fixed;
-  left: 0;
-  margin-left: 1%;
-  pointer-events: none;
-}
-div.sss {
+.icon-div {
   position: fixed;
   width: 2rem;
   height: 2rem;
@@ -77,5 +71,12 @@ div.sss {
   margin-left: 1%;
   border-radius: 50%;
   z-index: 0;
+}
+
+.bi-person {
+  position: fixed;
+  left: 0;
+  margin-left: 1%;
+  pointer-events: none;
 }
 </style>
