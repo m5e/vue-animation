@@ -18,18 +18,54 @@
             /></svg
         ></b-button>
       </b-navbar-brand>
-      <h3>vue-animation</h3>
+      <h3>{{ navTitle }}</h3>
     </b-navbar>
     <b-sidebar id="sidebar-left" title="Menu" left>
-      <p>
+      <p @click="refreshNavTitle">
         <router-link class="menu-content" to="/" @click="hide()"
-          >15 Pazzle</router-link
-        >
+          ><svg
+            class="bi bi-grid-3x3"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M0 1.5A1.5 1.5 0 011.5 0h13A1.5 1.5 0 0116 1.5v13a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 010 14.5v-13zM1.5 1a.5.5 0 00-.5.5V5h4V1H1.5zM5 6H1v4h4V6zm1 4V6h4v4H6zm-1 1H1v3.5a.5.5 0 00.5.5H5v-4zm1 0h4v4H6v-4zm5 0v4h3.5a.5.5 0 00.5-.5V11h-4zm0-1h4V6h-4v4zm0-5h4V1.5a.5.5 0 00-.5-.5H11v4zm-1 0H6V1h4v4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          15 Pazzle
+        </router-link>
       </p>
-      <p>
+      <p @click="refreshNavTitle">
         <router-link class="menu-content" to="/anime" @click="hide()"
-          >Anime</router-link
-        >
+          ><svg
+            class="bi bi-card-image"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+              clip-rule="evenodd"
+            />
+            <path
+              d="M10.648 7.646a.5.5 0 01.577-.093L15.002 9.5V13h-14v-1l2.646-2.354a.5.5 0 01.63-.062l2.66 1.773 3.71-3.71z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M4.502 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Animation
+        </router-link>
       </p>
     </b-sidebar>
 
@@ -49,13 +85,25 @@
 export default {
   /* eslint-disable */
   name: "App",
+  data() {
+    return { navTitle: "15 Pazzle" };
+  },
   mounted() {
     window.onload = setTimeout(this.refreshscreen, 1000);
+    this.refreshNavTitle();
   },
   methods: {
     refreshscreen() {
       const loadingElement = this.$el.getElementsByClassName("loading").item(0);
       loadingElement.classList.add("loaded");
+    },
+    refreshNavTitle() {
+      const currentPath = this.$route.path;
+      if (currentPath === "/") {
+        this.navTitle = "15 Pazzle";
+      } else if (currentPath === "/anime") {
+        this.navTitle = "Animation";
+      }
     }
   }
 };

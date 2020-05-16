@@ -1,12 +1,11 @@
 <template>
-  <div class="main">
+  <div class="pazzle">
     <div>
       <b-modal v-model="finished" centered title="Cleared!!!!">
         <p class="my-4">Thank you for playing!!</p>
       </b-modal>
     </div>
 
-    <h1>15 Pazzle</h1>
     <table class="board not-started">
       <tr>
         <td id="0">
@@ -272,11 +271,6 @@ button.start-button:active:after {
   width: 100%;
 }
 
-h1 {
-  font-weight: normal;
-  font-family: "Comic Sans MS";
-}
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -289,6 +283,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+.pazzle {
+  padding-top: 5%;
 }
 
 .board {
