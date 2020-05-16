@@ -1,6 +1,6 @@
 # vue-animation
 
-> Vue.js 
+> Vue.js × BootstrapVue
 
 ## Build Setup
 
