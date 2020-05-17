@@ -95,8 +95,8 @@ export default {
 
 .anime-content {
   position: fixed;
-  margin-left: 20%;
-  margin-top: 20%;
+  margin-left: 10%;
+  margin-top: 5%;
   animation: SlideIn 1s;
   font-family: "Comic Sans MS";
   text-align: left;
