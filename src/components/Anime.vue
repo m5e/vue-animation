@@ -2,7 +2,7 @@
   <div class="anime">
     <div class="icon-avatar" :class="{ 'scale-up': isShowScaleUp }"></div>
 
-    <div class="icon-div" @click="clickIcon">
+    <div class="icon-div" @click.stop="clickIcon">
       <svg
         class="bi bi-person-lines-fill"
         width="2em"
@@ -22,6 +22,16 @@
     <div v-show="isShowContent" class="anime-scaleup-content">
       <p>このリポジトリはVue.js, BootstrapVueを使用してます。</p>
       <p>とりあえずつくってみたいアニメーションを実装してみました。</p>
+    </div>
+
+    <div>
+      <div class="sliding-bg"></div>
+      <div class="sliding-bg2"></div>
+      <div class="sliding-bg3"></div>
+    </div>
+
+    <div class="anime-content">
+      <h1>Sliding background</h1>
     </div>
   </div>
 </template>
@@ -66,7 +76,7 @@ export default {
   background-color: rgb(176 224 230);
   transition: transform 0.3s ease-in-out;
   content: "";
-  z-index: -1;
+  z-index: 1;
 }
 
 .scale-up {
@@ -82,7 +92,8 @@ export default {
   left: 0;
   margin-left: 1%;
   border-radius: 50%;
-  z-index: 0;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .bi-person-lines-fill {
@@ -92,16 +103,6 @@ export default {
   pointer-events: none;
 }
 
-.anime-content {
-  position: fixed;
-  margin-left: 10%;
-  margin-top: 5%;
-  animation: FadeIn 1s;
-  transition-delay: 4ms;
-  font-family: "Comic Sans MS";
-  text-align: left;
-}
-
 .anime-scaleup-content {
   position: fixed;
   margin-left: 10%;
@@ -109,6 +110,7 @@ export default {
   animation: SlideIn 1s;
   font-family: "Comic Sans MS";
   text-align: left;
+  z-index: 1;
 }
 
 @keyframes SlideIn {
@@ -122,15 +124,42 @@ export default {
   }
 }
 
-@keyframes FadeIn {
+.sliding-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  right: -50%;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  opacity: 0.5;
+  z-index: 0;
+  animation: slidebg 5s ease-in-out infinite alternate;
+}
+
+@keyframes slidebg {
   0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.6;
+    transform: translateX(-15%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(15%);
   }
+}
+
+.sliding-bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.sliding-bg3 {
+  animation-duration: 5s;
+}
+
+.anime-content {
+  position: fixed;
+  top: 0;
+  padding-top: 30%;
+  padding-left: 40%;
+  padding-right: 60%;
+  font-family: "Comic Sans MS";
 }
 </style>

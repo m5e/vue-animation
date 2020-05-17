@@ -133,6 +133,7 @@ a.menu-content {
 
 .navigation {
   margin-bottom: 5%;
+  z-index: 99;
 }
 
 .navigation,
