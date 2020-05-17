@@ -2,7 +2,7 @@
   <div class="anime">
     <div class="icon-avatar" :class="{ 'scale-up': isShowScaleUp }"></div>
 
-    <div class="icon-div" @click="click">
+    <div class="icon-div" @click="clickIcon">
       <svg
         class="bi bi-person"
         width="2em"
@@ -18,6 +18,12 @@
         />
       </svg>
     </div>
+
+    <div v-show="isShowContent" class="anime-content">
+      <p>m5e</p>
+      <p>Vue.js</p>
+      <p>BootstrapVue</p>
+    </div>
   </div>
 </template>
 
@@ -26,18 +32,25 @@
 export default {
   name: "Anime",
   data() {
-    return { processing: false, isShowScaleUp: false };
+    return { processing: false, isShowScaleUp: false, isShowContent: false };
   },
   mounted() {},
   methods: {
-    click() {
+    clickIcon() {
       if (this.processing) return;
 
       this.processing = true;
 
       this.isShowScaleUp = !this.isShowScaleUp;
 
-      setTimeout((this.processing = false), 2000);
+      this.showContent().then(response => (this.processing = false));
+    },
+
+    showContent() {
+      return new Promise(resolve => {
+        setTimeout((this.isShowContent = !this.isShowContent), 3000);
+        resolve();
+      });
     }
   }
 };
@@ -78,5 +91,25 @@ export default {
   left: 0;
   margin-left: 1%;
   pointer-events: none;
+}
+
+.anime-content {
+  position: fixed;
+  margin-left: 20%;
+  margin-top: 20%;
+  animation: SlideIn 1s;
+  font-family: "Comic Sans MS";
+  text-align: left;
+}
+
+@keyframes SlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>

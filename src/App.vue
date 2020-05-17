@@ -162,11 +162,11 @@ a.menu-content {
   margin: 100px auto;
   top: 40%;
   border-radius: 50%; /* 四つ角を丸くする */
-  animation: sircle 1.1s infinite ease; /* infinite: ループ, ease : 開始・終了時ゆっくり */
-  -webkit-animation: sircle 1.1s infinite ease;
+  animation: loading-animation 1.1s infinite ease; /* infinite: ループ, ease : 開始・終了時ゆっくり */
+  -webkit-animation: loading-animation 1.1s infinite ease;
 }
 
-@-webkit-keyframes sircle {
+@-webkit-keyframes loading-animation {
   0%,
   100% {
     box-shadow: 0em -2.6em 0em 0em #ffffff,
@@ -242,7 +242,7 @@ a.menu-content {
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
-@keyframes sircle {
+@keyframes loading-animation {
   0%,
   100% {
     box-shadow: 0em -2.6em 0em 0em #ffffff,

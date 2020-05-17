@@ -1,71 +1,120 @@
 <template>
   <div class="pazzle">
-    <div>
-      <b-modal v-model="finished" centered title="Cleared!!!!">
-        <p class="my-4">Thank you for playing!!</p>
-      </b-modal>
-    </div>
-
     <table class="board not-started">
       <tr>
         <td id="0">
-          <button @click="movePanel">{{ this.panel[0] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[0] }}
+          </button>
         </td>
         <td id="1">
-          <button @click="movePanel">{{ this.panel[1] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[1] }}
+          </button>
         </td>
         <td id="2">
-          <button @click="movePanel">{{ this.panel[2] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[2] }}
+          </button>
         </td>
         <td id="3">
-          <button @click="movePanel">{{ this.panel[3] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[3] }}
+          </button>
         </td>
       </tr>
       <tr>
         <td id="4">
-          <button @click="movePanel">{{ this.panel[4] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[4] }}
+          </button>
         </td>
         <td id="5">
-          <button @click="movePanel">{{ this.panel[5] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[5] }}
+          </button>
         </td>
         <td id="6">
-          <button @click="movePanel">{{ this.panel[6] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[6] }}
+          </button>
         </td>
         <td id="7">
-          <button @click="movePanel">{{ this.panel[7] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[7] }}
+          </button>
         </td>
       </tr>
       <tr>
         <td id="8">
-          <button @click="movePanel">{{ this.panel[8] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[8] }}
+          </button>
         </td>
         <td id="9">
-          <button @click="movePanel">{{ this.panel[9] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[9] }}
+          </button>
         </td>
         <td id="10">
-          <button @click="movePanel">{{ this.panel[10] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[10] }}
+          </button>
         </td>
         <td id="11">
-          <button @click="movePanel">{{ this.panel[11] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[11] }}
+          </button>
         </td>
       </tr>
       <tr>
         <td id="12">
-          <button @click="movePanel">{{ this.panel[12] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[12] }}
+          </button>
         </td>
         <td id="13">
-          <button @click="movePanel">{{ this.panel[13] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[13] }}
+          </button>
         </td>
         <td id="14">
-          <button @click="movePanel">{{ this.panel[14] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[14] }}
+          </button>
         </td>
         <td id="15">
-          <button @click="movePanel">{{ this.panel[15] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[15] }}
+          </button>
         </td>
       </tr>
     </table>
 
-    <button class="start-button" @click="start">START</button>
+    <div>
+      <b-modal
+        v-model="finished"
+        title="Cleared!!!!"
+        :header-bg-variant="headerBgcolor"
+        :header-text-variant="headerTextColor"
+        centered
+        ok-only
+      >
+        <p class="my-4">Thank you for playing!!</p>
+        <template v-slot:modal-footer="{ ok }">
+          <b-button
+            class="modal-ok-button"
+            size="xs"
+            variant="success"
+            @click="ok()"
+          >
+            CLOSE
+          </b-button>
+        </template>
+      </b-modal>
+    </div>
+
+    <button class="panel-button start-button" @click="start">START</button>
   </div>
 </template>
 
@@ -74,7 +123,12 @@
 export default {
   name: "MainPage",
   data() {
-    return { panel: [], finished: false };
+    return {
+      panel: [],
+      finished: false,
+      headerBgcolor: "dark",
+      headerTextColor: "light"
+    };
   },
   mounted() {
     // パネル上に表示する数字を配列に格納
@@ -221,7 +275,7 @@ export default {
 </script>
 
 <style scoped>
-button {
+button.panel-button {
   width: 100%;
   height: 100%;
   min-width: 75px;
