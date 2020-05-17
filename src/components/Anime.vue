@@ -4,7 +4,7 @@
 
     <div class="icon-div" @click="clickIcon">
       <svg
-        class="bi bi-person"
+        class="bi bi-person-lines-fill"
         width="2em"
         height="2em"
         viewBox="0 0 16 16"
@@ -13,16 +13,15 @@
       >
         <path
           fill-rule="evenodd"
-          d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z"
+          d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm7 1.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm-2-3a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zm2 9a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"
           clip-rule="evenodd"
         />
       </svg>
     </div>
 
-    <div v-show="isShowContent" class="anime-content">
-      <p>m5e</p>
-      <p>Vue.js</p>
-      <p>BootstrapVue</p>
+    <div v-show="isShowContent" class="anime-scaleup-content">
+      <p>このリポジトリはVue.js, BootstrapVueを使用してます。</p>
+      <p>とりあえずつくってみたいアニメーションを実装してみました。</p>
     </div>
   </div>
 </template>
@@ -86,7 +85,7 @@ export default {
   z-index: 0;
 }
 
-.bi-person {
+.bi-person-lines-fill {
   position: fixed;
   left: 0;
   margin-left: 1%;
@@ -94,6 +93,16 @@ export default {
 }
 
 .anime-content {
+  position: fixed;
+  margin-left: 10%;
+  margin-top: 5%;
+  animation: FadeIn 1s;
+  transition-delay: 4ms;
+  font-family: "Comic Sans MS";
+  text-align: left;
+}
+
+.anime-scaleup-content {
   position: fixed;
   margin-left: 10%;
   margin-top: 5%;
@@ -110,6 +119,18 @@ export default {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
