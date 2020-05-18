@@ -119,6 +119,8 @@
 </template>
 
 <script>
+// TODO: eslint対応
+
 /* eslint-disable */
 export default {
   name: "MainPage",
@@ -291,8 +293,8 @@ button.start-button {
   border-radius: 5px;
   transition: all 0.3s;
   position: relative;
-  z-index: 2;
   font-family: "Comic Sans MS";
+  z-index: 2;
 }
 
 button.start-button:hover {
@@ -307,15 +309,15 @@ button.start-button:active {
 }
 
 button.start-button:after {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 0%;
   height: 100%;
   border-radius: 5px;
   background-color: #fff;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   transition: all 0.3s;
+  content: "";
   z-index: -1;
 }
 
@@ -345,6 +347,7 @@ a {
 
 .board {
   width: 50%;
+  max-width: 400px;
   height: 100%;
   margin: auto;
   border: 0.5rem solid;

@@ -1,5 +1,5 @@
 <template>
-  <div class="anime">
+  <div class="animation">
     <div class="icon-avatar" :class="{ 'scale-up': isShowScaleUp }"></div>
 
     <div class="icon-div" @click.stop="clickIcon">
@@ -37,9 +37,11 @@
 </template>
 
 <script>
+// TODO: eslint対応
+
 /* eslint-disable */
 export default {
-  name: "Anime",
+  name: "Animation",
   data() {
     return { processing: false, isShowScaleUp: false, isShowContent: false };
   },

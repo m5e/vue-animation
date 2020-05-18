@@ -41,7 +41,7 @@
         </router-link>
       </p>
       <p @click="refreshNavTitle">
-        <router-link class="menu-content" to="/anime" @click="hide()"
+        <router-link class="menu-content" to="/animation" @click="hide()"
           ><svg
             class="bi bi-card-image"
             width="1em"
@@ -68,7 +68,7 @@
         </router-link>
       </p>
       <p @click="refreshNavTitle">
-        <router-link class="menu-content" to="/figures" @click="hide()">
+        <router-link class="menu-content" to="/animation2" @click="hide()">
           <svg
             class="bi bi-circle-square"
             width="1em"
@@ -82,7 +82,7 @@
               d="M12.93 5h1.57a.5.5 0 01.5.5v9a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1.57a6.953 6.953 0 01-1-.22v1.79A1.5 1.5 0 005.5 16h9a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 4h-1.79c.097.324.17.658.22 1z"
             />
           </svg>
-          Geometric Figures
+          Animation2
         </router-link>
       </p>
     </b-sidebar>
@@ -101,6 +101,8 @@
 
 <script>
 export default {
+  // TODO: eslint対応
+
   /* eslint-disable */
   name: "App",
   data() {
@@ -119,10 +121,10 @@ export default {
       const currentPath = this.$route.path;
       if (currentPath === "/") {
         this.navTitle = "15 Pazzle";
-      } else if (currentPath === "/anime") {
+      } else if (currentPath === "/animation") {
         this.navTitle = "Animation";
-      } else if (currentPath === "/figures") {
-        this.navTitle = "Geometric Figures";
+      } else if (currentPath === "/animation2") {
+        this.navTitle = "Animation2";
       }
     }
   }
