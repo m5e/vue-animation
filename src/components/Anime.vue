@@ -31,7 +31,7 @@
     </div>
 
     <div class="anime-content">
-      <h1>Sliding background</h1>
+      <p>Sliding background</p>
     </div>
   </div>
 </template>
@@ -162,8 +162,37 @@ export default {
   position: fixed;
   top: 0;
   padding-top: 30%;
-  padding-left: 40%;
-  padding-right: 60%;
-  font-family: "Comic Sans MS";
+  padding-left: 50%;
+  font: bold 700% "Comic Sans MS";
+}
+
+@media only screen and (max-width: 1280px) {
+  .anime-content {
+    position: fixed;
+    top: 0;
+    padding-top: 30%;
+    padding-left: 50%;
+    font: bold 500% "Comic Sans MS";
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .anime-content {
+    position: fixed;
+    top: 0;
+    padding-top: 30%;
+    padding-left: 50%;
+    font: bold 400% "Comic Sans MS";
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .anime-content {
+    position: fixed;
+    top: 0;
+    padding-top: 40%;
+    padding-left: 30%;
+    font: bold 270% "Comic Sans MS";
+  }
 }
 </style>
