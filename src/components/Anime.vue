@@ -133,7 +133,7 @@ export default {
   background-image: linear-gradient(
     -60deg,
     rgb(73, 224, 131) 50%,
-    rgb(64, 102, 226) 50%
+    rgb(9, 140, 247) 50%
   );
   opacity: 0.5;
   z-index: 0;
