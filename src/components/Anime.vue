@@ -26,8 +26,8 @@
 
     <div>
       <div class="sliding-bg"></div>
-      <div class="sliding-bg2"></div>
-      <div class="sliding-bg3"></div>
+      <div class="sliding-bg sliding-bg2"></div>
+      <div class="sliding-bg sliding-bg3"></div>
     </div>
 
     <div class="anime-content">
@@ -130,10 +130,14 @@ export default {
   bottom: 0;
   left: -50%;
   right: -50%;
-  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  background-image: linear-gradient(
+    -60deg,
+    rgb(73, 224, 131) 50%,
+    rgb(64, 102, 226) 50%
+  );
   opacity: 0.5;
   z-index: 0;
-  animation: slidebg 5s ease-in-out infinite alternate;
+  animation: slidebg 4s ease-in-out infinite alternate;
 }
 
 @keyframes slidebg {
