@@ -92,6 +92,12 @@
         </td>
       </tr>
     </table>
+
+    <div class="toggle-btn-container">
+      <input type="checkbox" class="toggle-btn" />
+      <div class="toggle-btn-knobs"></div>
+      <div class="toggle-btn-layer"></div>
+    </div>
   </div>
 </template>
 
@@ -122,7 +128,7 @@ export default {
 
 <style scoped>
 table {
-  margin-top: 20%;
+  margin-top: 30%;
   margin-left: 10%;
 }
 
@@ -190,5 +196,66 @@ a:hover {
 
 .active a {
   color: #0955b8;
+}
+
+.toggle-btn-container {
+  position: relative;
+  top: 10%;
+  left: 10%;
+  border-radius: 100px;
+  width: 100px;
+  height: 35px;
+}
+
+.toggle-btn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+}
+
+.toggle-btn-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  background-color: rgb(138, 209, 182);
+  border-radius: 100px;
+}
+
+.toggle-btn:checked ~ .toggle-btn-layer {
+  background-color: rgb(236, 180, 147);
+}
+
+.toggle-btn-knobs {
+  position: relative;
+  left: 0;
+  z-index: 1;
+}
+
+.toggle-btn-knobs::before {
+  position: absolute;
+  left: 1px;
+  bottom: 8px;
+  content: "true";
+  color: white;
+  background-color: #0ea774c0;
+  border-radius: 50%;
+  padding: 7px 6px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: 0.3s ease all;
+  transform: rotateZ(-360deg);
+}
+
+.toggle-btn:checked + .toggle-btn-knobs::before {
+  content: "false";
+  left: 64px;
+  padding: 7.2px 3px;
+  background-color: #f44336;
+  transform: rotateZ(360deg);
 }
 </style>
