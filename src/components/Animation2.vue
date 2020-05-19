@@ -240,7 +240,7 @@ a:hover {
   position: absolute;
   left: 1px;
   bottom: 8px;
-  content: "true";
+  content: "Yes";
   color: white;
   background-color: #0ea774c0;
   border-radius: 50%;
@@ -252,9 +252,9 @@ a:hover {
 }
 
 .toggle-btn:checked + .toggle-btn-knobs::before {
-  content: "false";
-  left: 64px;
-  padding: 7.2px 3px;
+  content: "No";
+  left: 68px;
+  padding: 7px 7px;
   background-color: #f44336;
   transform: rotateZ(360deg);
 }
