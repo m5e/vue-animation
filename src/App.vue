@@ -15,15 +15,16 @@
               fill-rule="evenodd"
               d="M2 12.5a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z"
               clip-rule="evenodd"
-            /></svg
-        ></b-button>
+            />
+          </svg>
+        </b-button>
       </b-navbar-brand>
       <h3>{{ navTitle }}</h3>
     </b-navbar>
     <b-sidebar id="sidebar-left" title="Menu" left>
       <p @click="refreshNavTitle">
-        <router-link class="menu-content" to="/" @click="hide()"
-          ><svg
+        <router-link class="menu-content" to="/" @click="hide()">
+          <svg
             class="bi bi-grid-3x3"
             width="1em"
             height="1em"
@@ -41,8 +42,8 @@
         </router-link>
       </p>
       <p @click="refreshNavTitle">
-        <router-link class="menu-content" to="/animation" @click="hide()"
-          ><svg
+        <router-link class="menu-content" to="/animation" @click="hide()">
+          <svg
             class="bi bi-card-image"
             width="1em"
             height="1em"
@@ -180,13 +181,13 @@ a.menu-content {
 .loader {
   width: 1em;
   height: 1em;
-  font-size: 25px; /* 全体のサイズ */
+  font-size: 25px;
   position: relative;
   margin: 100px auto;
   top: 40%;
-  border-radius: 50%; /* 四つ角を丸くする */
-  animation: loading-animation 1.1s infinite ease; /* infinite: ループ, ease : 開始・終了時ゆっくり */
+  border-radius: 50%;
   -webkit-animation: loading-animation 1.1s infinite ease;
+  animation: loading-animation 1.1s infinite ease;
 }
 
 @-webkit-keyframes loading-animation {
