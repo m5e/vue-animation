@@ -3,58 +3,90 @@
     <table class="board not-started">
       <tr>
         <td id="0">
-          <button class="panel-button" @click="movePanel">{{ this.panel[0] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[0] }}
+          </button>
         </td>
         <td id="1">
-          <button class="panel-button" @click="movePanel">{{ this.panel[1] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[1] }}
+          </button>
         </td>
         <td id="2">
-          <button class="panel-button" @click="movePanel">{{ this.panel[2] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[2] }}
+          </button>
         </td>
         <td id="3">
-          <button class="panel-button" @click="movePanel">{{ this.panel[3] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[3] }}
+          </button>
         </td>
       </tr>
       <tr>
         <td id="4">
-          <button class="panel-button" @click="movePanel">{{ this.panel[4] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[4] }}
+          </button>
         </td>
         <td id="5">
-          <button class="panel-button" @click="movePanel">{{ this.panel[5] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[5] }}
+          </button>
         </td>
         <td id="6">
-          <button class="panel-button" @click="movePanel">{{ this.panel[6] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[6] }}
+          </button>
         </td>
         <td id="7">
-          <button class="panel-button" @click="movePanel">{{ this.panel[7] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[7] }}
+          </button>
         </td>
       </tr>
       <tr>
         <td id="8">
-          <button class="panel-button" @click="movePanel">{{ this.panel[8] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[8] }}
+          </button>
         </td>
         <td id="9">
-          <button class="panel-button" @click="movePanel">{{ this.panel[9] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[9] }}
+          </button>
         </td>
         <td id="10">
-          <button class="panel-button" @click="movePanel">{{ this.panel[10] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[10] }}
+          </button>
         </td>
         <td id="11">
-          <button class="panel-button" @click="movePanel">{{ this.panel[11] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[11] }}
+          </button>
         </td>
       </tr>
       <tr>
         <td id="12">
-          <button class="panel-button" @click="movePanel">{{ this.panel[12] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[12] }}
+          </button>
         </td>
         <td id="13">
-          <button class="panel-button" @click="movePanel">{{ this.panel[13] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[13] }}
+          </button>
         </td>
         <td id="14">
-          <button class="panel-button" @click="movePanel">{{ this.panel[14] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[14] }}
+          </button>
         </td>
         <td id="15">
-          <button class="panel-button" @click="movePanel">{{ this.panel[15] }}</button>
+          <button class="panel-button" @click="movePanel">
+            {{ this.panel[15] }}
+          </button>
         </td>
       </tr>
     </table>
@@ -70,7 +102,13 @@
       >
         <p class="my-4">Thank you for playing!!</p>
         <template v-slot:modal-footer="{ ok }">
-          <b-button class="modal-ok-button" size="xs" variant="success" @click="ok()">CLOSE</b-button>
+          <b-button
+            class="modal-ok-button"
+            size="xs"
+            variant="success"
+            @click="ok()"
+            >CLOSE</b-button
+          >
         </template>
       </b-modal>
     </div>

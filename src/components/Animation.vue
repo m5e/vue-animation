@@ -31,7 +31,7 @@
     </div>
 
     <div class="anime-content">
-      <p>Sliding background</p>
+      <p class="content-message">Sliding background</p>
     </div>
   </div>
 </template>

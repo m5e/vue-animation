@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -21,5 +21,5 @@ npm run unit
 npm run e2e
 
 # run all tests
-npm test
+npm run test
 ```
