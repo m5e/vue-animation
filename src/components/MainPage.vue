@@ -134,9 +134,7 @@ export default {
   },
   mounted() {
     // パネル上に表示する数字を配列に格納
-    for (let i = 1; i < 16; i++) {
-      this.panel.push(i);
-    }
+    for (let i = 1; i < 16; i++) this.panel.push(i);
 
     this.panel.push("★");
   },
@@ -176,9 +174,10 @@ export default {
           targetArray.push(item);
         }
       });
+
       let checkCount = 1;
       if (0 <= starIndex && starIndex <= 3) {
-        //
+        // DO NOTHING
       } else if (4 <= starIndex && starIndex <= 7) {
         checkCount = 2;
       } else if (8 <= starIndex && starIndex <= 11) {
