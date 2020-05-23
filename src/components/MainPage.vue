@@ -432,7 +432,7 @@ a {
   top: 0;
   padding-top: 5%;
   width: 100%;
-  height: 100%;
+  height: 105px;
   z-index: 1;
 }
 
