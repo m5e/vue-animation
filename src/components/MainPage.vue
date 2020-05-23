@@ -432,7 +432,7 @@ a {
   padding-top: 5%;
   width: 100vw;
   height: 100vh;
-  background: url("../../images/light.jpg");
+  background: url("https://m5e.github.io/vue-animation/images/light.jpg");
 }
 
 .board {
