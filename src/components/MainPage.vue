@@ -339,7 +339,7 @@ button.panel-button {
   min-width: 75px;
   font-size: 50px;
   color: #fff;
-  background: #0aa782f3;
+  background: #25a78b;
   box-shadow: 3px 4px 10px 3px #0b2e23;
 }
 
@@ -368,6 +368,7 @@ button.panel-button.fadein {
 
 button.start-button {
   width: 200px;
+  height: 10%;
   margin: 30px 0px 30px 0px;
   transition: all 1s ease;
   border-radius: 5px;
@@ -378,14 +379,14 @@ button.start-button {
 }
 
 button.start-button:hover {
-  color: #1aab8a;
-  background: #fff;
+  color: #25a78b;
+  background: rgb(233, 232, 232);
   transition: all 1s ease;
 }
 
 button.start-button:hover,
 button.start-button:active {
-  color: #00b285;
+  color: #25a78b;
 }
 
 button.start-button:after {
@@ -403,7 +404,7 @@ button.start-button:after {
 
 button.start-button:hover:after,
 button.start-button:active:after {
-  border: 2px solid #00b285;
+  border: 2px solid #25a78b;
   width: 100%;
 }
 
@@ -422,18 +423,25 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #33a088;
 }
 
 .pazzle {
+  position: fixed;
+  top: 0;
   padding-top: 5%;
+  width: 100vw;
+  height: 100vh;
+  background: url("../../images/light.jpg");
 }
 
 .board {
-  width: 50%;
+  position: relative;
+  width: 60%;
   max-width: 400px;
-  height: 100%;
+  height: 50%;
   margin: auto;
+  margin-top: 10%;
   border: 0.4rem solid;
 }
 
