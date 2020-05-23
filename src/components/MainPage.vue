@@ -369,7 +369,7 @@ button.panel-button.fadein {
 
 button.start-button {
   width: 200px;
-  height: 10%;
+  height: 80px;
   margin: 30px 0px 30px 0px;
   transition: all 1s ease;
   border-radius: 5px;
