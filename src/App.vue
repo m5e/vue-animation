@@ -115,6 +115,7 @@ export default {
       const loadingElement = this.$el.getElementsByClassName("loading").item(0);
       loadingElement.classList.add("loaded");
     },
+
     refreshNavTitle() {
       const currentPath = this.$route.path;
       if (currentPath === "/") {

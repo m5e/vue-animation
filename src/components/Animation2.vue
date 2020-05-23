@@ -108,22 +108,16 @@
 <script>
 export default {
   name: "Animation2",
-  data() {
-    return {};
-  },
   mounted() {
     const tdLists = this.$el.querySelectorAll("td");
     tdLists.forEach(list => {
       list.addEventListener("click", () => {
-        tdLists.forEach(lis => {
-          lis.classList.remove("active");
-        });
+        tdLists.forEach(lis => lis.classList.remove("active"));
 
         list.classList.add("active");
       });
     });
-  },
-  methods: {}
+  }
 };
 </script>
 

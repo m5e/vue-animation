@@ -42,7 +42,6 @@ export default {
   data() {
     return { processing: false, isShowScaleUp: false, isShowContent: false };
   },
-  mounted() {},
   methods: {
     clickIcon() {
       if (this.processing) return;

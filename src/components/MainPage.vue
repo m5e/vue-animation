@@ -94,13 +94,14 @@
     <div>
       <b-modal
         v-model="finished"
+        class="clear-modal"
         title="Cleared!!!!"
         :header-bg-variant="headerBgcolor"
         :header-text-variant="headerTextColor"
         centered
         ok-only
       >
-        <p class="my-4">Thank you for playing!!</p>
+        <p class="modal-para my-4">Thank you for playing!!</p>
         <template v-slot:modal-footer="{ ok }">
           <b-button
             class="modal-ok-button"
@@ -290,7 +291,6 @@ export default {
         }
 
         const oldTargetPanelChild = oldTargetPanel.childNodes[0];
-
         if (newTargetPanelChild.classList.contains("fadein")) {
           newTargetPanelChild.classList.remove("fadein");
         }
@@ -411,27 +411,8 @@ td {
   padding: 1px 2px 2px 1px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
 a {
   color: #33a088;
-}
-
-.pazzle {
-  position: fixed;
-  top: 0;
-  padding-top: 5%;
-  width: 100%;
-  height: 105px;
-  z-index: 1;
 }
 
 img {
@@ -441,6 +422,15 @@ img {
   width: 100vw;
   height: 100vh;
   z-index: -1;
+}
+
+.pazzle {
+  position: fixed;
+  top: 0;
+  padding-top: 5%;
+  width: 100%;
+  height: 105px;
+  z-index: 1;
 }
 
 .board {
@@ -463,6 +453,20 @@ img {
   font-weight: bold;
   color: gold;
   font-weight: normal;
+  font-family: "Comic Sans MS";
+}
+
+.clear-modal {
+  font-size: 150%;
+  font-family: "Comic Sans MS";
+}
+
+.modal-para {
+  font-size: 110%;
+  font-family: "Comic Sans MS";
+}
+
+.modal-ok-button {
   font-family: "Comic Sans MS";
 }
 </style>
