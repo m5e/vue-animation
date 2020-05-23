@@ -119,9 +119,6 @@
 </template>
 
 <script>
-// TODO: eslint対応
-
-/* eslint-disable */
 export default {
   name: "MainPage",
   data() {
@@ -350,6 +347,7 @@ button.panel-button.fadein {
   animation-duration: 0.5s;
   animation-name: fade-in;
 }
+
 @keyframes fade-in {
   0% {
     display: none;

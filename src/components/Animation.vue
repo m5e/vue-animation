@@ -37,9 +37,6 @@
 </template>
 
 <script>
-// TODO: eslint対応
-
-/* eslint-disable */
 export default {
   name: "Animation",
   data() {

@@ -102,9 +102,6 @@
 
 <script>
 export default {
-  // TODO: eslint対応
-
-  /* eslint-disable */
   name: "App",
   data() {
     return { navTitle: "15 Pazzle" };
