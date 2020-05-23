@@ -114,6 +114,7 @@
     </div>
 
     <button class="panel-button start-button" @click="start">START</button>
+    <img src="../../images/light.jpg" />
   </div>
 </template>
 
@@ -430,10 +431,18 @@ a {
   position: fixed;
   top: 0;
   padding-top: 5%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+img {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  /* background: url("../../images/light.jpg"); */
-  background: url("https://github.com/m5e/vue-animation/blob/master/images/light.jpg");
+  z-index: -1;
 }
 
 .board {
