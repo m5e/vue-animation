@@ -113,8 +113,29 @@
         </template>
       </b-modal>
     </div>
-
-    <button class="panel-button start-button" @click="start">START</button>
+    <ul>
+      <li class="elapsed-time">
+        経過時間：{{ this.currentHours }} 時間 {{ this.currentMinutes }} 分
+        {{ this.currentSeconds }} 秒
+      </li>
+    </ul>
+    <button
+      class="panel-button start-button"
+      @click="start"
+      :disabled="isPlaying"
+    >
+      START
+    </button>
+    <button class="panel-button start-button" @click="stopTimeMeasurement">
+      STOP
+    </button>
+    <button
+      class="panel-button restart-button"
+      @click="reStartMeasurement"
+      :disabled="isPlaying"
+    >
+      RESUME
+    </button>
     <img src="../../images/light.jpg" />
   </div>
 </template>
@@ -128,12 +149,19 @@ export default {
       finished: false,
       processing: false,
       headerBgcolor: "dark",
-      headerTextColor: "light"
+      headerTextColor: "light",
+      startTime: 0,
+      diffTime: 0,
+      currentTime: 0,
+      animateFrame: 0,
+      isPlaying: false
     };
   },
   mounted() {
     // パネル上に表示する数字を配列に格納
-    for (let i = 1; i < 16; i++) this.panel.push(i);
+    for (let i = 1; i < 16; i++) {
+      this.panel.push(i);
+    }
 
     this.panel.push("★");
   },
@@ -143,6 +171,7 @@ export default {
      */
     start() {
       this.finished = false;
+
       const boardElement = this.$el.getElementsByClassName("board")[0];
       if (boardElement.classList.contains("complete")) {
         boardElement.classList.remove("complete");
@@ -155,7 +184,11 @@ export default {
           return Math.random() - Math.random();
         });
 
-        if (this.checkSolvable(this.panel)) break;
+        if (this.checkSolvable(this.panel)) {
+          this.startTimeMeasurement();
+          this.isPlaying = true;
+          break;
+        }
       }
     },
 
@@ -261,6 +294,7 @@ export default {
         boardElement.classList.add("complete");
 
         this.finished = true;
+        cancelAnimationFrame(this.animateFrame);
       }
 
       return oldPanelIndex;
@@ -325,6 +359,82 @@ export default {
       ];
 
       return this.panel.toString() === completeArray.toString();
+    },
+
+    /**
+     * パネルの操作可否を制御
+     */
+    switchPanelOperationControl() {
+      const boardElement = this.$el.getElementsByClassName("board")[0];
+      if (!boardElement) return;
+
+      boardElement.classList.toggle("not-started");
+    },
+
+    /**
+     * 時間計測を開始
+     */
+    startTimeMeasurement() {
+      // 各パラメータの初期化
+      this.startTime = 0;
+      this.currentTime = 0;
+      this.diffTime = 0;
+      this.stopTimeMeasurement();
+      this.animateFrame = 0;
+
+      this.setStartTime();
+      this.timeCounter();
+    },
+
+    /**
+     * 時間計測を再開
+     */
+    reStartMeasurement() {
+      this.isPlaying = true;
+
+      this.setStartTime();
+      this.timeCounter();
+    },
+
+    /**
+     * 開始時間を startTime に代入
+     */
+    setStartTime() {
+      this.switchPanelOperationControl();
+
+      /* eslint-disable */
+      const time = this.diffTime !== "undefined" ? this.diffTime : 0;
+      this.startTime = Math.floor(performance.now() - time);
+    },
+
+    /**
+     * 時間計測処理
+     */
+    timeCounter() {
+      this.currentTime = Math.floor(performance.now());
+      this.diffTime = this.currentTime - this.startTime;
+      this.animateFrame = requestAnimationFrame(this.timeCounter);
+    },
+
+    /**
+     * 時間計測の停止
+     */
+    stopTimeMeasurement() {
+      this.isPlaying = false;
+
+      cancelAnimationFrame(this.animateFrame);
+      this.switchPanelOperationControl();
+    }
+  },
+  computed: {
+    currentHours() {
+      return Math.floor(this.diffTime / 1000 / 60 / 60);
+    },
+    currentMinutes() {
+      return Math.floor(this.diffTime / 1000 / 60) % 60;
+    },
+    currentSeconds() {
+      return Math.floor(this.diffTime / 1000) % 60;
     }
   }
 };
@@ -365,7 +475,8 @@ button.panel-button.fadein {
   }
 }
 
-button.start-button {
+button.start-button,
+button.restart-button {
   width: 200px;
   height: 80px;
   margin: 30px 0px 30px 0px;
@@ -377,18 +488,32 @@ button.start-button {
   z-index: 2;
 }
 
-button.start-button:hover {
+button.restart-button {
+  width: 260px;
+}
+
+button.start-button:disabled,
+button.restart-button:disabled {
+  background: #586663;
+  pointer-events: none;
+}
+
+button.start-button:hover,
+button.restart-button:hover {
   color: #25a78b;
   background: rgb(233, 232, 232);
   transition: all 1s ease;
 }
 
 button.start-button:hover,
-button.start-button:active {
+button.start-button:active,
+button.restart-button:hover,
+button.restart-button:active {
   color: #25a78b;
 }
 
-button.start-button:after {
+button.start-button:after,
+button.restart-button:after {
   position: absolute;
   top: 0;
   left: 0;
@@ -402,7 +527,9 @@ button.start-button:after {
 }
 
 button.start-button:hover:after,
-button.start-button:active:after {
+button.start-button:active:after,
+button.restart-button:hover:after,
+button.restart-button:active:after {
   border: 2px solid #25a78b;
   width: 100%;
 }
@@ -468,5 +595,10 @@ img {
 
 .modal-ok-button {
   font-family: "Comic Sans MS";
+}
+
+.elapsed-time {
+  color: #fff;
+  font-size: 150%;
 }
 </style>
