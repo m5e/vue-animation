@@ -102,6 +102,10 @@
         ok-only
       >
         <p class="modal-para my-4">Thank you for playing!!</p>
+        <p>
+          CLEAR TIME：{{ this.currentHours }} 時間 {{ this.currentMinutes }} 分
+          {{ this.currentSeconds }} 秒
+        </p>
         <template v-slot:modal-footer="{ ok }">
           <b-button
             class="modal-ok-button"
@@ -126,13 +130,17 @@
     >
       START
     </button>
-    <button class="panel-button start-button" @click="stopTimeMeasurement">
+    <button
+      class="panel-button start-button"
+      @click="stopTimeMeasurement"
+      :disabled="notStarted"
+    >
       STOP
     </button>
     <button
       class="panel-button restart-button"
       @click="reStartMeasurement"
-      :disabled="isPlaying"
+      :disabled="isPlaying || notStarted"
     >
       RESUME
     </button>
@@ -146,15 +154,16 @@ export default {
   data() {
     return {
       panel: [],
-      finished: false,
+      notStarted: true,
+      isPlaying: false,
       processing: false,
+      finished: false,
       headerBgcolor: "dark",
       headerTextColor: "light",
       startTime: 0,
       diffTime: 0,
       currentTime: 0,
-      animateFrame: 0,
-      isPlaying: false
+      animateFrame: 0
     };
   },
   mounted() {
@@ -170,7 +179,7 @@ export default {
      * スタートボタン押下時
      */
     start() {
-      this.finished = false;
+      this.notStarted = false;
 
       const boardElement = this.$el.getElementsByClassName("board")[0];
       if (boardElement.classList.contains("complete")) {
@@ -293,8 +302,11 @@ export default {
         const boardElement = this.$el.getElementsByClassName("board")[0];
         boardElement.classList.add("complete");
 
-        this.finished = true;
         cancelAnimationFrame(this.animateFrame);
+
+        this.isPlaying = false;
+        this.notStarted = true;
+        this.finished = true;
       }
 
       return oldPanelIndex;
