@@ -117,12 +117,10 @@
         </template>
       </b-modal>
     </div>
-    <ul>
-      <li class="elapsed-time">
-        経過時間：{{ this.currentHours }} 時間 {{ this.currentMinutes }} 分
-        {{ this.currentSeconds }} 秒
-      </li>
-    </ul>
+    <div class="elapsed-time">
+      経過時間：{{ this.currentHours }} 時間 {{ this.currentMinutes }} 分
+      {{ this.currentSeconds }} 秒
+    </div>
     <button
       class="panel-button start-button"
       @click="start"
