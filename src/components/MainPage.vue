@@ -124,21 +124,21 @@
     <button
       class="panel-button start-button"
       @click="start"
-      :disabled="isPlaying"
+      :disabled="!notStarted && isPlaying"
     >
       START
     </button>
     <button
       class="panel-button start-button"
       @click="stopTimeMeasurement"
-      :disabled="notStarted"
+      :disabled="!isPlaying"
     >
       STOP
     </button>
     <button
       class="panel-button restart-button"
       @click="reStartMeasurement"
-      :disabled="isPlaying || notStarted"
+      :disabled="notStarted || isPlaying"
     >
       RESUME
     </button>
@@ -182,8 +182,6 @@ export default {
      * スタートボタン押下時
      */
     start() {
-      this.notStarted = false;
-
       const boardElement = this.$el.getElementsByClassName("board")[0];
       if (boardElement.classList.contains("complete")) {
         boardElement.classList.remove("complete");
@@ -198,7 +196,9 @@ export default {
 
         if (this.checkSolvable(this.panel)) {
           this.startTimeMeasurement();
+          this.notStarted = false;
           this.isPlaying = true;
+
           break;
         }
       }
@@ -307,8 +307,8 @@ export default {
 
         cancelAnimationFrame(this.animateFrame);
 
-        this.isPlaying = false;
         this.notStarted = true;
+        this.isPlaying = false;
         this.finished = true;
       }
 
@@ -390,6 +390,8 @@ export default {
      * 時間計測を開始
      */
     startTimeMeasurement() {
+      document.getElementById("audio").play();
+
       // 各パラメータの初期化
       this.startTime = 0;
       this.currentTime = 0;
@@ -399,20 +401,18 @@ export default {
 
       this.setStartTime();
       this.timeCounter();
-
-      document.getElementById("audio").play();
     },
 
     /**
      * 時間計測を再開
      */
     reStartMeasurement() {
+      document.getElementById("audio").play();
+
       this.isPlaying = true;
 
       this.setStartTime();
       this.timeCounter();
-
-      document.getElementById("audio").play();
     },
 
     /**
@@ -439,12 +439,12 @@ export default {
      * 時間計測の停止
      */
     stopTimeMeasurement() {
+      document.getElementById("audio").play();
+
       this.isPlaying = false;
 
       cancelAnimationFrame(this.animateFrame);
       this.switchPanelOperationControl();
-
-      document.getElementById("audio").play();
     }
   },
   computed: {
