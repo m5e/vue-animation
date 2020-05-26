@@ -144,7 +144,7 @@
     </button>
     <img src="../../images/light.jpg" />
 
-    <audio id="audio" controls autoplay hidden>
+    <audio id="audio" controls hidden>
       <source src="../../sound/card-put1.mp3" type="audio/wav" />
       Your browser does not support the audio element.
     </audio>
@@ -195,8 +195,8 @@ export default {
         });
 
         if (this.checkSolvable(this.panel)) {
-          this.startTimeMeasurement();
           this.notStarted = false;
+          this.startTimeMeasurement();
           this.isPlaying = true;
 
           break;
