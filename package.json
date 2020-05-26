@@ -93,5 +93,8 @@
   "collectCoverageFrom": [
     "**/*.{js,vue}",
     "!**/node_modules/**"
+  ],
+  "web_accessible_resources": [
+    "card-put1.mp3"
   ]
 }

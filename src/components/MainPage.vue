@@ -143,6 +143,11 @@
       RESUME
     </button>
     <img src="../../images/light.jpg" />
+
+    <audio id="audio" controls autoplay hidden>
+      <source src="../../sound/card-put1.mp3" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
   </div>
 </template>
 
@@ -394,6 +399,8 @@ export default {
 
       this.setStartTime();
       this.timeCounter();
+
+      document.getElementById("audio").play();
     },
 
     /**
@@ -404,6 +411,8 @@ export default {
 
       this.setStartTime();
       this.timeCounter();
+
+      document.getElementById("audio").play();
     },
 
     /**
@@ -434,6 +443,8 @@ export default {
 
       cancelAnimationFrame(this.animateFrame);
       this.switchPanelOperationControl();
+
+      document.getElementById("audio").play();
     }
   },
   computed: {
